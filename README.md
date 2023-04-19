@@ -49,10 +49,10 @@ let options = {
 
 carbon(code, output, options)
 ```
-Output:
-![https://i.ibb.co/KWStY3j/php.png](php.png)
+Output:</br>
+![php.png](https://i.ibb.co/KWStY3j/php.png)
 
 ## Note
 - This is Unofficial [carbon.now.sh](https://carbon.now.sh) Package
 - You can use Hex Color for Background Color
-- You Can Check all Available Themes, Languages, and Font in [here](https://raw.githubusercontent.com/XanderID/carbon-now-scraper/options.js)
+- You Can Check all Available Themes, Languages, and Font in [here](https://raw.githubusercontent.com/XanderID/carbon-now-Scraper/main/options.js)
