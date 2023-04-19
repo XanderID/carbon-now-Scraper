@@ -1,0 +1,30 @@
+{
+    "name": "carbon-now-scraper",
+    "version": "1.0.0",
+    "description": "Create a beautiful image with some Highlight With Your Codes",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/XanderID/carbon-now-Scraper.git"
+    },
+    "keywords": [
+        "carbon.now.sh",
+        "carbon-now-sh",
+        "carbon-now",
+        "carbon"
+    ],
+    "author": "XanderID",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/XanderID/carbon-now-Scraper/issues"
+    },
+    "homepage": "https://github.com/XanderID/carbon-now-Scraper#readme",
+    "dependencies": {
+        "fs-extra": "^11.1.1",
+        "path": "^0.12.7",
+        "puppeteer": "^19.9.1"
+    }
+}
