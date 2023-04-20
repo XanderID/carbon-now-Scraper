@@ -51,7 +51,7 @@ async function carbon(code, outputPath, option = {}) {
       `There is no ${font} Carbon Fonts, please check at carbon.now.sh for a list of Fonts`
     );
 
-  let fontParam = font.replace('-', ' ');
+  let fontParam = font.replace("-", " ");
   // Parameter Url
   let parameter = {
     code: code,
@@ -66,9 +66,8 @@ async function carbon(code, outputPath, option = {}) {
     wm: watermark,
   };
   let url = "https://carbon.now.sh?" + createParameter(parameter);
-  const createCarbon = await openBrowser(url, outputPath);
 
-  return createCarbon;
+  return openBrowser(url, outputPath);
 }
 
 /**
@@ -103,6 +102,9 @@ async function openBrowser(url, outputPath) {
     deviceScaleFactor: 2,
   });
 
+  // Download
+  let downloaded = null;
+
   // Event
   let client = await page.target().createCDPSession();
   await client.send("Browser.setDownloadBehavior", {
@@ -114,13 +116,15 @@ async function openBrowser(url, outputPath) {
   client.on("Browser.downloadProgress", async (event) => {
     // Identify if File Downloaded
     if (event.state === "completed") {
+      let newfilename = path.resolve(folder, filename)
       fs.renameSync(
         path.resolve(folder, event.guid),
-        path.resolve(folder, filename)
+        newfilename
       );
 
       // Close Browser after Success Download
       await browser.close();
+      downloaded = newfilename
     }
   });
 
@@ -129,7 +133,14 @@ async function openBrowser(url, outputPath) {
   await page.waitForSelector(".jsx-2184717013");
   await page.click(".jsx-2184717013");
 
-  return path.resolve(folder, filename);
+  return new Promise(async (resolve, reject) => {
+    let checkDownloaded = setInterval(() => {
+      if (downloaded !== null) {
+        clearInterval(checkDownloaded);
+        resolve(downloaded);
+      }
+    }, 100);
+  });
 }
 
 module.exports = carbon;

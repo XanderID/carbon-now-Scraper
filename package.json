@@ -1,6 +1,6 @@
 {
     "name": "carbon-now-scraper",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Create a beautiful image with some Highlight With Your Codes",
     "main": "index.js",
     "scripts": {

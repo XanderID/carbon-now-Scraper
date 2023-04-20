@@ -1,6 +1,9 @@
 # carbon-now-scraper
 Create a beautiful image with some Highlight With Your Codes
 
+## What's News?
+- Now With Promise so you can check If the file has finished downloading!
+
 ## Argument
 To use the carbon-now-scraper, 2 arguments and 1 optional are needed.
 Argument | Type | Needed | Description
@@ -48,6 +51,23 @@ let options = {
 }
 
 carbon(code, output, options)
+```
+With Promise
+```nodejs
+const carbon = require('carbon-now-scraper');
+
+let code = `<?php
+    echo "Hi There!";
+?>`
+let output = "./php.png"
+let options = {
+    lang: "php",
+    theme: "a11y-dark"
+}
+
+carbon(code, output, options).then((downloaded) => {
+    console.log(`File successfully downloaded in ${downloaded}`)
+})
 ```
 Output:</br>
 ![php.png](https://i.ibb.co/KWStY3j/php.png)
